@@ -219,7 +219,7 @@ Public Class ResultForm
             If (.Ab.operating < .Am.operating) Then
                 RTB1.SelectionColor = Color.Red
                 RTB1.AppendText(vbCrLf & "warning: insufficient bolt area ; Ab<Abmin " & vbCrLf _
-                                & "Ab = " & Format(.Ab, myvalf) & vbTab & "Abmin = " & Format(.Am, myvalf) _
+                                & "Ab = " & Format(.Ab.operating, myvalf) & vbTab & "Abmin = " & Format(.Am.operating, myvalf) _
                                 & vbCrLf & vbCrLf)
             End If
 
