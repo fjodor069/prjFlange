@@ -11,11 +11,14 @@ namespace prjFlangeCS
          public enum typeflange {fl_integral, fl_loose, fl_slipon};
          public static string[] flangeName = { "integral", "loose", "slipon" };
 
-         //public struct myDouble
-         //{
-         //   public double operating;
-         //   public double testing;
-         //}
+
+        public bool bInitialised { get; set; }      //is the input complete to start the calculation
+
+        //public struct myDouble
+        //{
+        //   public double operating;
+        //   public double testing;
+        //}
         //onder ASME is alleen een berekening voor operating (design) + gasket seating dus niet ook voor testing
 
         public double Ar;           // bolt root area
@@ -35,7 +38,7 @@ namespace prjFlangeCS
         public double Sb, Sa;       //allowable stress bolt
         public double nu;           //poisson ratio 
       
-        public double Bn, hn, g0n, g1n;     //nominale (nieuwe) afmetingen 
+        public double Bn, tn, g0n, g1n;     //nominale (nieuwe) afmetingen 
         public double A, h, C, Go, Gi;
         public double B;
         public double g0, g1;        // As myDouble               
@@ -87,7 +90,7 @@ namespace prjFlangeCS
 
         public clFlange()
         {
-
+            bInitialised = false;
         }
 
         public void calculate()
@@ -107,7 +110,7 @@ namespace prjFlangeCS
             G = (Go + Gi)/2;
 
             //flange actual thickness;
-            h = hn - fall;
+            h = tn - fall;
 
         //'====== check bolt distances to hub (R) and flange od (E)
         //'note boltspacing wordt al eerder apart berekend voor update in frmFlangeInput

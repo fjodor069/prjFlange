@@ -44,7 +44,7 @@
             this.Label11 = new System.Windows.Forms.Label();
             this.Label12 = new System.Windows.Forms.Label();
             this.Text_A = new System.Windows.Forms.TextBox();
-            this.Text_h = new System.Windows.Forms.TextBox();
+            this.Text_t = new System.Windows.Forms.TextBox();
             this.Text_B = new System.Windows.Forms.TextBox();
             this.Text_g0 = new System.Windows.Forms.TextBox();
             this.Text_g1 = new System.Windows.Forms.TextBox();
@@ -57,7 +57,7 @@
             this.Label24 = new System.Windows.Forms.Label();
             this.Label25 = new System.Windows.Forms.Label();
             this.Text_P = new System.Windows.Forms.TextBox();
-            this.Text_T = new System.Windows.Forms.TextBox();
+            this.Text_Temp = new System.Windows.Forms.TextBox();
             this.Text_Pt = new System.Windows.Forms.TextBox();
             this.Text_Sfo = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -69,7 +69,7 @@
             this.Text_y = new System.Windows.Forms.TextBox();
             this.Text_m = new System.Windows.Forms.TextBox();
             this.Text_Gi = new System.Windows.Forms.TextBox();
-            this.Text_G = new System.Windows.Forms.TextBox();
+            this.Text_Go = new System.Windows.Forms.TextBox();
             this.Label13 = new System.Windows.Forms.Label();
             this.Label14 = new System.Windows.Forms.Label();
             this.Label15 = new System.Windows.Forms.Label();
@@ -89,9 +89,9 @@
             this.Text_nb = new System.Windows.Forms.TextBox();
             this.Text_Ar = new System.Windows.Forms.TextBox();
             this.Text_bolt = new System.Windows.Forms.TextBox();
-            this.Button2 = new System.Windows.Forms.Button();
+            this.cmdSelectBolt = new System.Windows.Forms.Button();
             this.Panel1 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.cmdExit = new System.Windows.Forms.Button();
             this.cmdCalc = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -128,7 +128,7 @@
             this.tabPage1.Controls.Add(this.Label11);
             this.tabPage1.Controls.Add(this.Label12);
             this.tabPage1.Controls.Add(this.Text_A);
-            this.tabPage1.Controls.Add(this.Text_h);
+            this.tabPage1.Controls.Add(this.Text_t);
             this.tabPage1.Controls.Add(this.Text_B);
             this.tabPage1.Controls.Add(this.Text_g0);
             this.tabPage1.Controls.Add(this.Text_g1);
@@ -141,7 +141,7 @@
             this.tabPage1.Controls.Add(this.Label24);
             this.tabPage1.Controls.Add(this.Label25);
             this.tabPage1.Controls.Add(this.Text_P);
-            this.tabPage1.Controls.Add(this.Text_T);
+            this.tabPage1.Controls.Add(this.Text_Temp);
             this.tabPage1.Controls.Add(this.Text_Pt);
             this.tabPage1.Controls.Add(this.Text_Sfo);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
@@ -285,9 +285,9 @@
             this.Label10.Location = new System.Drawing.Point(338, 51);
             this.Label10.Name = "Label10";
             this.Label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Label10.Size = new System.Drawing.Size(90, 13);
+            this.Label10.Size = new System.Drawing.Size(87, 13);
             this.Label10.TabIndex = 96;
-            this.Label10.Text = "Thickness e (mm)";
+            this.Label10.Text = "Thickness t (mm)";
             // 
             // Label11
             // 
@@ -329,19 +329,19 @@
             this.Text_A.TabIndex = 89;
             this.Text_A.Text = "A";
             // 
-            // Text_h
+            // Text_t
             // 
-            this.Text_h.AcceptsReturn = true;
-            this.Text_h.BackColor = System.Drawing.SystemColors.Window;
-            this.Text_h.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Text_h.ForeColor = System.Drawing.Color.Blue;
-            this.Text_h.Location = new System.Drawing.Point(513, 54);
-            this.Text_h.MaxLength = 0;
-            this.Text_h.Name = "Text_h";
-            this.Text_h.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text_h.Size = new System.Drawing.Size(97, 20);
-            this.Text_h.TabIndex = 90;
-            this.Text_h.Text = "e";
+            this.Text_t.AcceptsReturn = true;
+            this.Text_t.BackColor = System.Drawing.SystemColors.Window;
+            this.Text_t.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Text_t.ForeColor = System.Drawing.Color.Blue;
+            this.Text_t.Location = new System.Drawing.Point(513, 54);
+            this.Text_t.MaxLength = 0;
+            this.Text_t.Name = "Text_t";
+            this.Text_t.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Text_t.Size = new System.Drawing.Size(97, 20);
+            this.Text_t.TabIndex = 90;
+            this.Text_t.Text = "t";
             // 
             // Text_B
             // 
@@ -505,19 +505,19 @@
             this.Text_P.TabIndex = 73;
             this.Text_P.Text = "P";
             // 
-            // Text_T
+            // Text_Temp
             // 
-            this.Text_T.AcceptsReturn = true;
-            this.Text_T.BackColor = System.Drawing.SystemColors.Window;
-            this.Text_T.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Text_T.ForeColor = System.Drawing.Color.Blue;
-            this.Text_T.Location = new System.Drawing.Point(203, 54);
-            this.Text_T.MaxLength = 0;
-            this.Text_T.Name = "Text_T";
-            this.Text_T.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text_T.Size = new System.Drawing.Size(97, 20);
-            this.Text_T.TabIndex = 74;
-            this.Text_T.Text = "T";
+            this.Text_Temp.AcceptsReturn = true;
+            this.Text_Temp.BackColor = System.Drawing.SystemColors.Window;
+            this.Text_Temp.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Text_Temp.ForeColor = System.Drawing.Color.Blue;
+            this.Text_Temp.Location = new System.Drawing.Point(203, 54);
+            this.Text_Temp.MaxLength = 0;
+            this.Text_Temp.Name = "Text_Temp";
+            this.Text_Temp.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Text_Temp.Size = new System.Drawing.Size(97, 20);
+            this.Text_Temp.TabIndex = 74;
+            this.Text_Temp.Text = "T";
             // 
             // Text_Pt
             // 
@@ -558,7 +558,7 @@
             this.tabPage2.Controls.Add(this.Text_y);
             this.tabPage2.Controls.Add(this.Text_m);
             this.tabPage2.Controls.Add(this.Text_Gi);
-            this.tabPage2.Controls.Add(this.Text_G);
+            this.tabPage2.Controls.Add(this.Text_Go);
             this.tabPage2.Controls.Add(this.Label13);
             this.tabPage2.Controls.Add(this.Label14);
             this.tabPage2.Controls.Add(this.Label15);
@@ -669,19 +669,19 @@
             this.Text_Gi.TabIndex = 56;
             this.Text_Gi.Text = "Gi";
             // 
-            // Text_G
+            // Text_Go
             // 
-            this.Text_G.AcceptsReturn = true;
-            this.Text_G.BackColor = System.Drawing.SystemColors.Window;
-            this.Text_G.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Text_G.ForeColor = System.Drawing.Color.Blue;
-            this.Text_G.Location = new System.Drawing.Point(178, 37);
-            this.Text_G.MaxLength = 0;
-            this.Text_G.Name = "Text_G";
-            this.Text_G.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text_G.Size = new System.Drawing.Size(97, 20);
-            this.Text_G.TabIndex = 55;
-            this.Text_G.Text = "Go";
+            this.Text_Go.AcceptsReturn = true;
+            this.Text_Go.BackColor = System.Drawing.SystemColors.Window;
+            this.Text_Go.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Text_Go.ForeColor = System.Drawing.Color.Blue;
+            this.Text_Go.Location = new System.Drawing.Point(178, 37);
+            this.Text_Go.MaxLength = 0;
+            this.Text_Go.Name = "Text_Go";
+            this.Text_Go.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Text_Go.Size = new System.Drawing.Size(97, 20);
+            this.Text_Go.TabIndex = 55;
+            this.Text_Go.Text = "Go";
             // 
             // Label13
             // 
@@ -740,7 +740,7 @@
             this.tabPage3.Controls.Add(this.Text_nb);
             this.tabPage3.Controls.Add(this.Text_Ar);
             this.tabPage3.Controls.Add(this.Text_bolt);
-            this.tabPage3.Controls.Add(this.Button2);
+            this.tabPage3.Controls.Add(this.cmdSelectBolt);
             this.tabPage3.Controls.Add(this.Panel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 4);
             this.tabPage3.Name = "tabPage3";
@@ -934,15 +934,15 @@
             this.Text_bolt.TabIndex = 10;
             this.Text_bolt.Text = "SA-193 B7";
             // 
-            // Button2
+            // cmdSelectBolt
             // 
-            this.Button2.Location = new System.Drawing.Point(286, 98);
-            this.Button2.Name = "Button2";
-            this.Button2.Size = new System.Drawing.Size(34, 19);
-            this.Button2.TabIndex = 6;
-            this.Button2.Text = "...";
-            this.Button2.UseVisualStyleBackColor = true;
-            this.Button2.Click += new System.EventHandler(this.Button2_Click);
+            this.cmdSelectBolt.Location = new System.Drawing.Point(286, 98);
+            this.cmdSelectBolt.Name = "cmdSelectBolt";
+            this.cmdSelectBolt.Size = new System.Drawing.Size(34, 19);
+            this.cmdSelectBolt.TabIndex = 6;
+            this.cmdSelectBolt.Text = "...";
+            this.cmdSelectBolt.UseVisualStyleBackColor = true;
+            this.cmdSelectBolt.Click += new System.EventHandler(this.cmdSelectBolt_Click);
             // 
             // Panel1
             // 
@@ -953,16 +953,16 @@
             this.Panel1.Size = new System.Drawing.Size(274, 250);
             this.Panel1.TabIndex = 15;
             // 
-            // btnClose
+            // cmdExit
             // 
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(542, 403);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(113, 29);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Exit";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.Button1_Click);
+            this.cmdExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdExit.Location = new System.Drawing.Point(542, 403);
+            this.cmdExit.Name = "cmdExit";
+            this.cmdExit.Size = new System.Drawing.Size(113, 29);
+            this.cmdExit.TabIndex = 1;
+            this.cmdExit.Text = "Exit";
+            this.cmdExit.UseVisualStyleBackColor = true;
+            this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
             // cmdCalc
             // 
@@ -984,7 +984,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(697, 464);
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.cmdCalc);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
@@ -1006,7 +1006,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        internal System.Windows.Forms.Button btnClose;
+        internal System.Windows.Forms.Button cmdExit;
         public System.Windows.Forms.Button cmdCalc;
         private System.Windows.Forms.TabPage tabPage3;
         public System.Windows.Forms.Label Label28;
@@ -1023,7 +1023,7 @@
         public System.Windows.Forms.Label Label11;
         public System.Windows.Forms.Label Label12;
         public System.Windows.Forms.TextBox Text_A;
-        public System.Windows.Forms.TextBox Text_h;
+        public System.Windows.Forms.TextBox Text_t;
         public System.Windows.Forms.TextBox Text_B;
         public System.Windows.Forms.TextBox Text_g0;
         public System.Windows.Forms.TextBox Text_g1;
@@ -1036,7 +1036,7 @@
         public System.Windows.Forms.Label Label24;
         public System.Windows.Forms.Label Label25;
         public System.Windows.Forms.TextBox Text_P;
-        public System.Windows.Forms.TextBox Text_T;
+        public System.Windows.Forms.TextBox Text_Temp;
         public System.Windows.Forms.TextBox Text_Pt;
         public System.Windows.Forms.TextBox Text_Sfo;
         public System.Windows.Forms.TextBox Text_Gpf;
@@ -1047,7 +1047,7 @@
         public System.Windows.Forms.TextBox Text_y;
         public System.Windows.Forms.TextBox Text_m;
         public System.Windows.Forms.TextBox Text_Gi;
-        public System.Windows.Forms.TextBox Text_G;
+        public System.Windows.Forms.TextBox Text_Go;
         public System.Windows.Forms.Label Label13;
         public System.Windows.Forms.Label Label14;
         public System.Windows.Forms.Label Label15;
@@ -1066,7 +1066,7 @@
         public System.Windows.Forms.TextBox Text_nb;
         public System.Windows.Forms.TextBox Text_Ar;
         public System.Windows.Forms.TextBox Text_bolt;
-        internal System.Windows.Forms.Button Button2;
+        internal System.Windows.Forms.Button cmdSelectBolt;
         internal System.Windows.Forms.Panel Panel1;
 
     }
