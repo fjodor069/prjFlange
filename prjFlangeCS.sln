@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prjFlangeCS", "clFlange\prjFlangeCS.csproj", "{95657920-737D-4FD7-A661-F3CFBD48BE3D}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "prjFlange", "prjFlange\prjFlange.vbproj", "{9D510CD9-621C-4D3D-BEBF-0DF61030BCEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{95657920-737D-4FD7-A661-F3CFBD48BE3D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{95657920-737D-4FD7-A661-F3CFBD48BE3D}.Release|x86.ActiveCfg = Release|x86
 		{95657920-737D-4FD7-A661-F3CFBD48BE3D}.Release|x86.Build.0 = Release|x86
+		{9D510CD9-621C-4D3D-BEBF-0DF61030BCEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D510CD9-621C-4D3D-BEBF-0DF61030BCEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D510CD9-621C-4D3D-BEBF-0DF61030BCEC}.Debug|x86.ActiveCfg = Debug|x86
+		{9D510CD9-621C-4D3D-BEBF-0DF61030BCEC}.Debug|x86.Build.0 = Debug|x86
+		{9D510CD9-621C-4D3D-BEBF-0DF61030BCEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D510CD9-621C-4D3D-BEBF-0DF61030BCEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D510CD9-621C-4D3D-BEBF-0DF61030BCEC}.Release|x86.ActiveCfg = Release|x86
+		{9D510CD9-621C-4D3D-BEBF-0DF61030BCEC}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
