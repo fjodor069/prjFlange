@@ -39,7 +39,7 @@ namespace prjFlangeCS
         //this is the object we are working with
         clFlange myFlange;
 
-        CSBoltLib.BoltClass myBolt = new BoltClass();
+        CSBoltLib.BoltClass myBolt;
         
         CultureInfo myCulture = CultureInfo.CurrentCulture;
 
@@ -61,15 +61,27 @@ namespace prjFlangeCS
         {
             //initialise the form
             myFlange = new clFlange();
+
+            myBolt = new BoltClass();
+
             
-
+           
             //combobox flange type 
-
             cbType.Items.Clear();
             foreach (string s in clFlange.flangeName)
                 cbType.Items.Add(s);
-
             cbType.SelectedIndex = 0;
+
+            //combobox gasket type
+            cbGasket.Items.Clear();
+            cbGasket.Items.Add("soft flat");
+            cbGasket.Items.Add("kamprofile");
+        //    myFlange.Init_Gaskets()
+        //For i = 0 To myFlange.gasketlist.Count - 1
+        //    Dim agasket As vbGasket = DirectCast(myFlange.gasketlist(i), vbGasket)
+        //    cbGasket.Items.Add(agasket.Name)
+            cbGasket.SelectedIndex = 0;    
+      
 
 
             ClearInput();
@@ -89,8 +101,7 @@ namespace prjFlangeCS
         /// </summary>
         private void ReadInput()
         {
-            //get all input from the comboboxes
-            myFlange.myType = (clFlange.typeflange)cbType.SelectedIndex;
+          
 
             //get all input from the textboxes
             try
@@ -98,8 +109,10 @@ namespace prjFlangeCS
                 //tab 1
                 myFlange.Pd = double.Parse(Text_P.Text);
                 myFlange.Td = double.Parse(Text_Temp.Text);
-
+                
+                myFlange.myType = (clFlange.typeflange)cbType.SelectedIndex;
                 //Pt = CDbl(Text_Pt.Text)  test pressure niet nodig in ASME, grijs laten
+                
                 //materiaal: allowables invullen
                 myFlange.Sfa = double.Parse(Text_Sfa.Text);
                 myFlange.Sfo = double.Parse(Text_Sfo.Text);
@@ -107,7 +120,7 @@ namespace prjFlangeCS
                 myFlange.A = double.Parse(Text_A.Text);
                 myFlange.tn = double.Parse(Text_t.Text);
                 myFlange.Bn = double.Parse(Text_B.Text);
-                myFlange.C = double.Parse(Text_C.Text);
+                
                 myFlange.ca = double.Parse(Text_ca.Text);
                 myFlange.fall = double.Parse(Text_fa.Text);
                 myFlange.h1 = double.Parse(Text_h1.Text);
@@ -116,17 +129,21 @@ namespace prjFlangeCS
 
                 //fl_mat = Text_material.Text
                 //tab 2
-                myFlange.G = double.Parse(Text_Go.Text);
+                myFlange.Go = double.Parse(Text_Go.Text);
                 myFlange.Gi = double.Parse(Text_Gi.Text);
+                myFlange.gasket_type = (short)cbGasket.SelectedIndex;
                 myFlange.m = double.Parse(Text_m.Text);
                 myFlange.y = double.Parse(Text_y.Text);
-
+                
                 myFlange.gpf = double.Parse(Text_Gpf.Text);
 
                 //tab 3
                 //gasket_type = cbGasket.SelectedIndex
+                myFlange.C = double.Parse(Text_C.Text);
                 myFlange.nbolts = int.Parse(Text_nb.Text);
-
+              //  myFlange.bolt_size = short.Parse(Text_boltsize.Text);
+                myFlange.Ar = double.Parse(Text_Ar.Text);
+                myFlange.bolt_mat = Text_bolt.Text;
                 myFlange.Sa = double.Parse(Text_Sa.Text);
                 myFlange.Sb = double.Parse(Text_Sb.Text);
 
@@ -135,8 +152,10 @@ namespace prjFlangeCS
 
 
             }
-            catch (Exception)
+            catch (Exception /*ex*/)
             {
+                
+               // MessageBox.Show(ex.Message + ex.StackTrace );
                 MessageBox.Show("\n Not enough input for calculation. You must enter a value", "Wrong Input", 
                                 MessageBoxButtons.OK, 
                                 MessageBoxIcon.Information);
@@ -159,9 +178,9 @@ namespace prjFlangeCS
             //tab 1 input
             Text_P.Text = myFlange.Pd.ToString("0.00");
             Text_Temp.Text = myFlange.Td.ToString("0.00");
-            //Text_Pt.Text = CStr(Pt)
-            //cbType.SelectedIndex = .fl_type
+            Text_Pt.Text = String.Empty;
 
+            Text_material.Text = myFlange.fl_mat;
             Text_Sfa.Text = myFlange.Sfa.ToString("0.00");
             Text_Sfo.Text = myFlange.Sfo.ToString("0.00");
 
@@ -178,13 +197,15 @@ namespace prjFlangeCS
             Text_Go.Text = myFlange.Go.ToString("0.00");
             Text_Gi.Text = myFlange.Gi.ToString("0.00");
 
-            //cbGasket.SelectedIndex = .gasket_type
+            cbGasket.SelectedIndex = 0;
             Text_m.Text = myFlange.m.ToString("0.00");
             Text_y.Text = myFlange.y.ToString("0.00");
 
+            Text_Gpf.Text = myFlange.gpf.ToString("0.00");
+
             //tab 3 input
             Text_C.Text = myFlange.C.ToString("0.00");
-            Text_nb.Text = myFlange.nbolts.ToString("0.00");
+            Text_nb.Text = myFlange.nbolts.ToString("0");
 
             //Text_boltsize.Text = .sBoltName
             //'bolt data van frmSelectBolt dialog
@@ -193,15 +214,10 @@ namespace prjFlangeCS
             Text_boltsize.Text = myBolt.szDiameter;
             Text_Ar.Text = myFlange.Ar.ToString("0.00");
 
-            //If(myBoltMaterial IsNot Nothing) Then
+            Text_bolt.Text = myFlange.bolt_mat;
 
-            //    Text_bolt.Text = .bolt_mat
-            //End If
-
-            //'Text_bolt.Text = .bolt_mat
-
-            //'Text_Sa.Text = .Sa.ToString
-            //'Text_Sb.Text = .Sb.ToString
+            Text_Sa.Text = myFlange.Sa.ToString("0.00");
+            Text_Sb.Text = myFlange.Sb.ToString("0.00");
                                                                
 
             //'bolt cirkel plaatje bijwerken
@@ -231,9 +247,8 @@ namespace prjFlangeCS
             //tab 1 input
             Text_P.Text = String.Empty;
             Text_Temp.Text = String.Empty;
-            //Text_Pt.Text = CStr(Pt)
-            //cbType.SelectedIndex = .fl_type
-
+       
+            Text_material.Text = String.Empty;
             Text_Sfa.Text = String.Empty;
             Text_Sfo.Text = String.Empty;
 
@@ -250,9 +265,10 @@ namespace prjFlangeCS
             Text_Go.Text = String.Empty;
             Text_Gi.Text = String.Empty;
 
-            //cbGasket.SelectedIndex = .gasket_type
+            cbGasket.SelectedIndex = 0;
             Text_m.Text = String.Empty;
             Text_y.Text = String.Empty;
+            Text_Gpf.Text = String.Empty;
 
             //tab 3 input
             Text_C.Text = String.Empty;
@@ -265,6 +281,13 @@ namespace prjFlangeCS
             Text_boltsize.Text = String.Empty;
             Text_Ar.Text = String.Empty;
 
+            Text_bolt.Text = String.Empty;
+
+            Text_Sa.Text = String.Empty;
+            Text_Sb.Text = String.Empty;
+
+
+
         }
 
         #endregion
@@ -276,6 +299,7 @@ namespace prjFlangeCS
         /// <summary>
         /// start the calculation
         /// read input from textboxes
+        /// show result in new form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -284,10 +308,13 @@ namespace prjFlangeCS
 
             //pushed the calculation button
             ReadInput();
+            if (myFlange.bInitialised)
+            { 
+                myFlange.Calculate();
 
-            myFlange.calculate();
-
-            //printresult
+               ResultForm myResult = new ResultForm(myFlange);
+                myResult.Show();
+            }
             
         }
             
@@ -297,16 +324,35 @@ namespace prjFlangeCS
         {
             //open bolt dialog (from CSBoltLib.dll)
             frmSelectBolt myDialog = new frmSelectBolt();
+            
 
             //de database moet staan in \clFlange\bin\Debug of in startup path
             myDialog.sDataFile = "\\Cea_bolt.mdb";
             myDialog.sDataPath = Application.StartupPath;
             myDialog.ShowDialog();
             myBolt = myDialog.myBolt;
-            Text_boltsize.Text = myBolt.szDiameter;
+
+            //============
+            // de gekozen bolt opslaan in het flange object
+            // en invoer form bijwerken
+            myFlange.Ar = myBolt.Ab_root();
+
+            myFlange.bolt_mat = Text_bolt.Text;
+            myFlange.sBoltName = myBolt.szDiameter;
+            myFlange.d = myBolt.d;
+            myFlange.Emin = myBolt.E;
+            myFlange.Rmin = myBolt.R;
+
+            FillInput();
+
+         
+
+
+
+
         }
 
-        #endregion
+
 
         /// <summary>
         /// exit the program
@@ -317,5 +363,27 @@ namespace prjFlangeCS
         {
             this.Close();
         }
+
+
+        private void cmdExample_Click(object sender, EventArgs e)
+        {
+
+            myFlange.ExampleInput();
+
+            FillInput();
+
+            myFlange.bInitialised = true;
+
+        }
+        private void cmdClear_Click(object sender, EventArgs e)
+        {
+
+            ClearInput();
+            myFlange.bInitialised = false;
+
+        }
+        #endregion
+
+       
     }
 }

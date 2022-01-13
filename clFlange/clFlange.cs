@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace prjFlangeCS
 {
-    class clFlange
+    public class clFlange
     {
          public enum typeflange {fl_integral, fl_loose, fl_slipon};
          public static string[] flangeName = { "integral", "loose", "slipon" };
@@ -20,6 +20,11 @@ namespace prjFlangeCS
         //   public double testing;
         //}
         //onder ASME is alleen een berekening voor operating (design) + gasket seating dus niet ook voor testing
+        #region Properties
+
+        //every property has a private field which allocates the memory
+        //and simple properties are automatically implemented
+        //===input parameters
 
         public double Ar;           // bolt root area
         public double d;            // bolt nominal diameter
@@ -51,11 +56,12 @@ namespace prjFlangeCS
         public int nbolts;              //  'number of bolts
     
         public String fl_mat, bolt_mat;
-        public typeflange myType;
-        public short gasket_type, bolt_size;
+        public typeflange myType;                       //type: integral, loose, slipon
+        public short gasket_type, bolt_size;            //index number 
         
 
-        //other variables
+        //=== calculated variables
+
         public double f, fa, ftest, fb, fba, fbtest;     //  'allowable stresses
         public double fbo, fbt;
         public double b0, be, G, Dig;
@@ -85,6 +91,8 @@ namespace prjFlangeCS
         public double sigmaht, sigmart, sigmact;
 
         public double k1;
+        
+        #endregion
 
 
 
@@ -93,8 +101,66 @@ namespace prjFlangeCS
             bInitialised = false;
         }
 
-        public void calculate()
+        /// <summary>
+        /// create example input for testing 
+        /// </summary>
+        public void ExampleInput()
         {
+
+            myType = clFlange.typeflange.fl_integral;
+
+
+            //tab 1
+            Pd = 0.59;
+            Td = 225;
+
+                //Pt = CDbl(Text_Pt.Text)  test pressure niet nodig in ASME, grijs laten
+                //materiaal: allowables invullen
+            Sfa = 115.1;
+            Sfo = 78.6;
+
+            A = 3800;
+            tn = 185;
+            Bn = 3594;
+            
+            ca = 0;
+            fall = 0;
+            h1 = 60;
+            g0n = 20;
+            g1n = 25;
+
+            fl_mat = "SA266 gr.2";
+
+            //tab 2
+            Go = 3670;
+            Gi = 3638;
+            gasket_type = 1;        //index number
+            m = 3.75;
+            y = 52.4;
+            gpf = 1.0;
+
+            
+
+            //tab 3
+           
+            C = 3725;
+            nbolts = 120;
+            bolt_size = 1;
+            Sa = 172.4;
+            Sb = 172.4;
+            Ar = 355.5;
+            bolt_mat = "SA193 B7";
+
+            minspacing = 52.4;
+
+         }
+
+        public void Calculate()
+        {
+            //do nothing when input is not ready
+            if (!bInitialised)
+                return;
+
             //gasket contact width
             N = (Go - Gi)/2;
 

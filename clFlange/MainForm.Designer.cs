@@ -93,6 +93,8 @@
             this.Panel1 = new System.Windows.Forms.Panel();
             this.cmdExit = new System.Windows.Forms.Button();
             this.cmdCalc = new System.Windows.Forms.Button();
+            this.cmdExample = new System.Windows.Forms.Button();
+            this.cmdClear = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -522,16 +524,16 @@
             // Text_Pt
             // 
             this.Text_Pt.AcceptsReturn = true;
-            this.Text_Pt.BackColor = System.Drawing.SystemColors.Window;
+            this.Text_Pt.BackColor = System.Drawing.SystemColors.Control;
             this.Text_Pt.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Text_Pt.ForeColor = System.Drawing.Color.Blue;
             this.Text_Pt.Location = new System.Drawing.Point(203, 80);
             this.Text_Pt.MaxLength = 0;
             this.Text_Pt.Name = "Text_Pt";
+            this.Text_Pt.ReadOnly = true;
             this.Text_Pt.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text_Pt.Size = new System.Drawing.Size(97, 20);
             this.Text_Pt.TabIndex = 75;
-            this.Text_Pt.Text = "Pt";
             // 
             // Text_Sfo
             // 
@@ -979,11 +981,33 @@
             this.cmdCalc.UseVisualStyleBackColor = false;
             this.cmdCalc.Click += new System.EventHandler(this.cmdCalc_Click);
             // 
+            // cmdExample
+            // 
+            this.cmdExample.Location = new System.Drawing.Point(28, 406);
+            this.cmdExample.Name = "cmdExample";
+            this.cmdExample.Size = new System.Drawing.Size(75, 23);
+            this.cmdExample.TabIndex = 2;
+            this.cmdExample.Text = "Example";
+            this.cmdExample.UseVisualStyleBackColor = true;
+            this.cmdExample.Click += new System.EventHandler(this.cmdExample_Click);
+            // 
+            // cmdClear
+            // 
+            this.cmdClear.Location = new System.Drawing.Point(129, 406);
+            this.cmdClear.Name = "cmdClear";
+            this.cmdClear.Size = new System.Drawing.Size(75, 23);
+            this.cmdClear.TabIndex = 3;
+            this.cmdClear.Text = "Clear";
+            this.cmdClear.UseVisualStyleBackColor = true;
+            this.cmdClear.Click += new System.EventHandler(this.cmdClear_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(697, 464);
+            this.Controls.Add(this.cmdClear);
+            this.Controls.Add(this.cmdExample);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.cmdCalc);
             this.Controls.Add(this.tabControl1);
@@ -1068,7 +1092,8 @@
         public System.Windows.Forms.TextBox Text_bolt;
         internal System.Windows.Forms.Button cmdSelectBolt;
         internal System.Windows.Forms.Panel Panel1;
-
+        private System.Windows.Forms.Button cmdExample;
+        private System.Windows.Forms.Button cmdClear;
     }
 }
 
